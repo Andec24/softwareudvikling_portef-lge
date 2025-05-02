@@ -8,31 +8,22 @@ using namespace std;
 class Character {
 protected:
     std::string name;
-    int hp;
+    int currentHp;
+    int maxHp;
     int strength;
 
 public:
-    Character(const std::string& name, int hp, int strength)
-        : name(name), hp(hp), strength(strength) {}
+    Character(const string& name, int hp, int strength);
+    virtual ~Character();
 
-    virtual ~Character() = default;
+    const std::string& getName() const;
+    int getHp() const;
+    int getStrength() const;
 
-    const std::string& getName() const { return name; }
-    int getHp() const { return hp; }
-    int getStrength() const { return strength; }
-
-    void takeDamage(int damage) {
-        hp -= damage;
-        if (hp < 0) hp = 0;
-    }
-
-    virtual void attack(Character& target) {
-        target.takeDamage(strength);
-    }
-
-    virtual void displayStats() const {
-        cout << "Name: " << name << ", HP: " << hp << ", Strength: " << strength << endl;
-    }
+    virtual void takeDamage(int damage);
+    virtual void resetHp();
+    virtual void attack(Character& target);
+    virtual void displayStats() const;
 };
 
 #endif // CHARACTER_H

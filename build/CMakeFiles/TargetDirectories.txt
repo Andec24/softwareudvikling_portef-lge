@@ -1,0 +1,3 @@
+/home/sammy/workspace/softwareudvikling/build/CMakeFiles/game.dir
+/home/sammy/workspace/softwareudvikling/build/CMakeFiles/edit_cache.dir
+/home/sammy/workspace/softwareudvikling/build/CMakeFiles/rebuild_cache.dir

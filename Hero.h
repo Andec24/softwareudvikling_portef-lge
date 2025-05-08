@@ -14,7 +14,7 @@ public:
     void gainXp(int amount);
     void levelUp();
     void displayStats() const override;
-    void resetHp();
+ 
 };
 
 #endif // HERO_H

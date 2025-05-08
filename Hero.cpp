@@ -5,17 +5,23 @@ Hero::Hero(const string& name)
 
 void Hero::gainXp(int amount) {
     xp += amount;
+    cout << name << " gained " << amount << " XP!" << endl;
+    cout << "Current XP: " << xp << endl;
+    
     while (xp >= level * 1000) {
-        xp -= level * 1000;
         levelUp();
     }
 }
 
 void Hero::levelUp() {
+    int formerlevel = level;
     level++;
     maxHp += 2;
     strength += 1;
     cout << name << " leveled up to level " << level << "!" << endl;
+    cout << "HP increased by 2 and Strength increased by 1!" << endl;
+    xp -= formerlevel * 1000;
+    cout << "Current XP is now: " << xp << endl;
 }
 
 void Hero::displayStats() const {

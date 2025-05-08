@@ -1,7 +1,7 @@
 #include "Character.h"
 
 Character::Character(const std::string& name, int hp, int strength)
-    : name(name), maxHp(hp), strength(strength) {}
+    : name(name), maxHp(hp), strength(strength){  currentHp = maxHp; }
 
 Character::~Character() = default;
 
@@ -25,7 +25,6 @@ void Character::takeDamage(int damage) {
 void Character::resetHp(){
     currentHp = maxHp;
 }
-
 
 void Character::attack(Character& target) {
     target.takeDamage(strength);

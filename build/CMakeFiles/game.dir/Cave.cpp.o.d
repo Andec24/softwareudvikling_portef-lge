@@ -1,6 +1,8 @@
-CMakeFiles/game.dir/main.cpp.o: \
- /home/sammy/workspace/softwareudvikling/main.cpp \
- /usr/include/stdc-predef.h /usr/include/c++/11/iostream \
+CMakeFiles/game.dir/Cave.cpp.o: \
+ /home/sammy/workspace/softwareudvikling/Cave.cpp \
+ /usr/include/stdc-predef.h \
+ /home/sammy/workspace/softwareudvikling/Cave.h \
+ /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -146,8 +148,7 @@ CMakeFiles/game.dir/main.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/sammy/workspace/softwareudvikling/Hero.h \
- /home/sammy/workspace/softwareudvikling/Character.h \
  /home/sammy/workspace/softwareudvikling/Enemy.h \
- /home/sammy/workspace/softwareudvikling/CombatManager.h \
- /home/sammy/workspace/softwareudvikling/Cave.h
+ /home/sammy/workspace/softwareudvikling/Character.h \
+ /home/sammy/workspace/softwareudvikling/Hero.h \
+ /home/sammy/workspace/softwareudvikling/CombatManager.h

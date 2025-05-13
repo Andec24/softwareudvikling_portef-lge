@@ -13,7 +13,7 @@ protected:
     int strength;
 
 public:
-    Character(const string& name, int hp, int strength);
+    Character(const string& n2ame, int hp, int strength);
     virtual ~Character();
 
     const std::string& getName() const;

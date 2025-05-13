@@ -28,3 +28,13 @@ void Hero::displayStats() const {
     Character::displayStats();
     cout << "XP: " << xp << ", Level: " << level << endl;
 }
+
+void Hero::obtainGold(int amount) {
+    cout << name << "You obtained " << amount << " gold!" << endl;
+    gold += amount;
+
+}
+
+int Hero::getLevel() {
+    return level;
+}

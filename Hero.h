@@ -7,6 +7,7 @@ class Hero : public Character {
 private:
     int xp;
     int level;
+    int gold;
     
 
 public:
@@ -14,6 +15,8 @@ public:
     void gainXp(int amount);
     void levelUp();
     void displayStats() const override;
+    void obtainGold(int amount);
+    int getLevel();
  
 };
 

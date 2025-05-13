@@ -129,6 +129,30 @@ game/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/build
 .PHONY : game/fast
 
+Cave.o: Cave.cpp.o
+.PHONY : Cave.o
+
+# target to build an object file
+Cave.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/Cave.cpp.o
+.PHONY : Cave.cpp.o
+
+Cave.i: Cave.cpp.i
+.PHONY : Cave.i
+
+# target to preprocess a source file
+Cave.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/Cave.cpp.i
+.PHONY : Cave.cpp.i
+
+Cave.s: Cave.cpp.s
+.PHONY : Cave.s
+
+# target to generate assembly for a file
+Cave.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/Cave.cpp.s
+.PHONY : Cave.cpp.s
+
 Character.o: Character.cpp.o
 .PHONY : Character.o
 
@@ -258,6 +282,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... game"
+	@echo "... Cave.o"
+	@echo "... Cave.i"
+	@echo "... Cave.s"
 	@echo "... Character.o"
 	@echo "... Character.i"
 	@echo "... Character.s"

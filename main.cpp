@@ -3,7 +3,9 @@
 #include "Hero.h"
 #include "Enemy.h"
 #include "CombatManager.h"
+#include "Cave.h"
 using namespace std;
+
 
 // Enemy instances
 Enemy Goblin("Goblin", 10, 2, 250);
@@ -12,6 +14,7 @@ Enemy Orc("Orc", 20, 4, 500);
 Enemy Troll("Troll", 30, 6, 600);
 Enemy Vampire("Vampire", 40, 8, 800);
 Enemy Dragon("Dragon", 50, 10, 1000);
+
 
 void fightDecider(Hero& hero);  // Forward declaration
 void decider(Hero& hero);
@@ -47,13 +50,19 @@ Hero gameStart() {
 // Handles user decision to continue or quit
 void decider(Hero& hero) {
     cout << "Your options are:" << endl;
-    cout << "Fight enemy (1) or quit (2): ";
+    cout << "Fight enemy (1), enter cave (2) or quit (3): ";
     string choice;
     cin >> choice;
 
     if (choice == "1") {
         fightDecider(hero);
     } else if (choice == "2") {
+        Cave cave(hero);
+        cout << "You have entered the "<< cave.getName() << endl;
+        cave.enterCave(hero);
+
+
+    } else if (choice == "3") {
         cout << "Exiting the game." << endl;
         exit(0);
     } else {

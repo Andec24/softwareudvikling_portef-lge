@@ -66,16 +66,57 @@ void Cave::enterCave(Hero & hero) {
     fightEnemy(hero, *enemy2);
     fightEnemy(hero, *enemy3);
     cout << "You have defeated all enemies in the cave!" << endl;
-    giveGold();
+    giveRewards();
 }
 
 void Cave::fightEnemy(Hero & hero, Enemy & enemy) {
     CombatManager combatManager(hero, enemy);
     combatManager.startCombat();
 }
-void Cave::giveGold() {
+void Cave::giveRewards() {
     int goldAmount = random() % 50 + 100;
     hero->obtainGold(goldAmount);
+
+    Weapon * weapon = generateWeapon();
+    cout << "You found a " << weapon->getName() << "!" << endl;
+    if (hero->getWeapon() == nullptr) {
+        cout << "You have no weapon equipped. Equipping the new weapon." << endl;
+        hero->equipWeapon(weapon);
+        return;
+    }
+    
+    cout << "Your current weapon is: " << hero->getWeapon()->getName() << endl;
+    cout << "do you want to equip the new weapon? (y/n): ";
+    string choice;
+    cin >> choice;
+    if (choice == "y") {
+        hero->equipWeapon(weapon);
+    } else {
+        cout << "You chose not to equip the new weapon." << endl;
+        delete weapon; // deletes object if not equipped
+    }
+    
+}
+
+Weapon* Cave::generateWeapon() {
+    int weaponType = rand() % 6 + 1;
+    if (weaponType == 1) {
+        return new Weapon("Sword", 5, 2, 25);
+    } else if (weaponType == 2) {
+        return new Weapon("Axe", 7, 3, 12);
+    } else if (weaponType == 3) {
+        return new Weapon("Bow", 4, 1, 20);
+    }
+    else if (weaponType == 4) {
+        return new Weapon("Spear", 6, 2, 15);
+    }
+    else if (weaponType == 5) {
+        return new Weapon("Dagger", 3, 1, 30);
+    }
+    else {
+        return new Weapon("Staff", 4, 2, 10);
+    }
+    
 }
 
 Cave::~Cave() {

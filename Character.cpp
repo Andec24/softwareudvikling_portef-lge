@@ -27,9 +27,18 @@ void Character::resetHp(){
 }
 
 void Character::attack(Character& target) {
-    target.takeDamage(strength);
+    int damage = strength;
+    Weapon* weapon = getWeapon();
+    if (weapon && !weapon->isBroken()){
+        damage = weapon->getDamage(strength);
+    }
+    target.takeDamage(damage);
 }
 
 void Character::displayStats() const {
     cout << "Name: " << name << ", HP: " << maxHp << ", Strength: " << strength << endl;
+}
+
+Weapon* Character::getWeapon() const {
+    return nullptr; // needed for hero class, ignored in enemy class
 }

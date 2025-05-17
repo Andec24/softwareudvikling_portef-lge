@@ -16,6 +16,7 @@ set(SOURCES
     Enemy.cpp
     CombatManager.cpp
     Cave.cpp
+    Weapon.cpp
 )
 
 # Add the header files (optional, for IDEs)
@@ -25,6 +26,7 @@ set(HEADERS
     Enemy.h
     CombatManager.h
     Cave.h
+    Weapon.h
 )
 
 # Create the executable

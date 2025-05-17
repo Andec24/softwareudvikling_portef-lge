@@ -3,20 +3,21 @@
 
 #include <string>
 #include <iostream>
+#include "Weapon.h"
 using namespace std;
 
 class Character {
 protected:
-    std::string name;
+    string name;
     int currentHp;
     int maxHp;
     int strength;
 
 public:
-    Character(const string& n2ame, int hp, int strength);
+    Character(const string& name, int hp, int strength);
     virtual ~Character();
 
-    const std::string& getName() const;
+    const string& getName() const;
     int getHp() const;
     int getStrength() const;
 
@@ -24,6 +25,8 @@ public:
     virtual void resetHp();
     virtual void attack(Character& target);
     virtual void displayStats() const;
+    virtual Weapon* getWeapon() const; 
+
 };
 
 #endif // CHARACTER_H

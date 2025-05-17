@@ -38,3 +38,14 @@ void Hero::obtainGold(int amount) {
 int Hero::getLevel() {
     return level;
 }
+
+
+void Hero::equipWeapon(Weapon* weapon) {
+    this -> weapon = weapon;
+    cout << name << " equipped " << weapon->getName() << "!" << endl;
+    
+}
+
+Weapon* Hero::getWeapon() const {
+    return weapon;
+}

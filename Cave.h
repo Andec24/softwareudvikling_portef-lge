@@ -4,6 +4,7 @@
 #include "Enemy.h"
 #include "Hero.h"
 #include "CombatManager.h"
+#include "Weapon.h"
 #include <string>
 using namespace std;
 
@@ -14,7 +15,7 @@ private:
     Enemy* enemy2;
     Enemy* enemy3;
     Hero* hero;
-    void giveGold();
+    void giveRewards();
     string name;
 
 public:
@@ -23,8 +24,8 @@ public:
     string getName();
     void enterCave(Hero & hero);
     void createEnemies(Hero & hero);
-    void enterCave();
     void fightEnemy(Hero & hero, Enemy & enemy);
+    Weapon* generateWeapon();
     ~Cave();
     
 

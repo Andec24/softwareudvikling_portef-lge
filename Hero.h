@@ -12,12 +12,14 @@ private:
     Weapon* weapon = nullptr;
 
 public:
-    Hero(const string& name);
+    Hero(const string& name, int level, int xp, int gold);
     void gainXp(int amount);
     void levelUp();
     void displayStats() const override;
     void obtainGold(int amount);
     int getLevel();
+    int getXp() const;
+    int getGold() const;
     void equipWeapon(Weapon* weapon);
     Weapon* getWeapon() const override;
     

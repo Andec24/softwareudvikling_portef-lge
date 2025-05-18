@@ -74,7 +74,7 @@ void Cave::fightEnemy(Hero & hero, Enemy & enemy) {
     combatManager.startCombat();
 }
 void Cave::giveRewards() {
-    int goldAmount = random() % 50 + 100;
+    int goldAmount = random() % 100 + 50;
     hero->obtainGold(goldAmount);
 
     Weapon * weapon = generateWeapon();

@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
+#include <optional>
 #include "Hero.h"
 #include "Enemy.h"
 #include "CombatManager.h"
 #include "Cave.h"
+#include "DatabaseManager.h"
 using namespace std;
 
 
@@ -18,6 +20,7 @@ Enemy Dragon("Dragon", 50, 10, 1000);
 
 void fightDecider(Hero& hero);  // Forward declaration
 void decider(Hero& hero);
+void analysisMenu(DatabaseManager& db);
 
 
 // Starts a fight between the hero and the chosen enemy
@@ -27,30 +30,65 @@ void startFight(Hero& hero, Enemy& enemy) {
 }
 
 // Prompts user to create or select a hero
-Hero gameStart() {
+Hero gameStart(DatabaseManager& db) {
     string heroName;
-    cout << "Play with Arthur (1), enter your own name (2) or quit (3): ";
+    cout << "Load a Hero (1), Create new Hero (2), Analyse Game (3), or Quit (4): ";
     string choice;
     cin >> choice;
 
     if (choice == "1") {
-        heroName = "Arthur";
+        cout << "Enter hero name to load: ";
+        cin >> heroName;
+        auto loadedHero = db.loadHero(heroName);
+        if (loadedHero) {
+            cout << "Hero loaded successfully!" << endl;
+            return *loadedHero;
+        } else {
+            cout << "Hero not found. Creating a new one." << endl;
+        }
     } else if (choice == "2") {
         cout << "Enter your hero's name: ";
         cin >> heroName;
+        return Hero(heroName,1, 0, 0);
+    } else if (choice == "3") {
+        analysisMenu(db);
+        return gameStart(db);
     } else {
-        cout << "Invalid choice. Defaulting to Arthur." << endl;
-        heroName = "Arthur";
+        cout << "Quitting game." << endl;
+        exit(0);
     }
 
-    Hero player(heroName);
-    return player;
+    return Hero("Arthur", 1, 0, 0); // Default hero if none is created
+}
+
+void analysisMenu(DatabaseManager& db) {
+    cout << "\n--- Game Analysis Menu ---\n";
+    cout << "1. Show all heroes alphabetically\n";
+    cout << "2. Show total monsters defeated per hero\n";
+    cout << "3. Show weapon kills by specific hero\n";
+    cout << "4. Show top hero per weapon\n";
+    cout << "5. Return to main menu\n";
+
+    string choice;
+    cin >> choice;
+    if (choice == "1") db.showAllHeroesAlphabetically();
+    else if (choice == "2") db.showMonsterKillsPerHero();
+    else if (choice == "3") {
+        cout << "Enter hero name: ";
+        string heroName;
+        cin >> heroName;
+        db.showWeaponKillsByHero(heroName);
+    }
+    else if (choice == "4") db.showHeroMostKillsPerWeapon();
+    else return;
+
+    analysisMenu(db); // Loop until user chooses to return
 }
 
 // Handles user decision to continue or quit
 void decider(Hero& hero) {
     cout << "Your options are:" << endl;
-    cout << "Fight enemy (1), enter cave (2) or quit (3): ";
+    cout << "Fight enemy (1), enter cave (2), save hero(3) or quit (4): ";
     string choice;
     cin >> choice;
 
@@ -60,9 +98,12 @@ void decider(Hero& hero) {
         Cave cave(hero);
         cout << "You have entered the "<< cave.getName() << endl;
         cave.enterCave(hero);
-
-
     } else if (choice == "3") {
+        DatabaseManager db;
+        db.saveHero(hero.getName(), hero.getLevel(), hero.getXp(), hero.getGold());
+        cout << "Hero saved successfully!" << endl;
+
+    } else if (choice == "4") {
         cout << "Exiting the game." << endl;
         exit(0);
     } else {
@@ -104,7 +145,8 @@ void fightDecider(Hero& hero) {
 
 // Main game loop
 int main() {
-    Hero player = gameStart();
+    DatabaseManager db;
+    Hero player = gameStart(db);
     cout << "Welcome to the game, " << player.getName() << "!" << endl;
     cout << "You have " << player.getHp() << " HP and " << player.getStrength() << " strength." << endl;
 

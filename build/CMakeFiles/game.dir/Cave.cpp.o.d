@@ -156,4 +156,16 @@ CMakeFiles/game.dir/Cave.cpp.o: \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
  /home/sammy/workspace/softwareudvikling/Hero.h \
- /home/sammy/workspace/softwareudvikling/CombatManager.h
+ /home/sammy/workspace/softwareudvikling/CombatManager.h \
+ /home/sammy/workspace/softwareudvikling/DatabaseManager.h \
+ /usr/include/sqlite3.h /usr/include/c++/11/map \
+ /usr/include/c++/11/bits/stl_tree.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/bits/node_handle.h \
+ /usr/include/c++/11/bits/stl_map.h /usr/include/c++/11/tuple \
+ /usr/include/c++/11/utility /usr/include/c++/11/bits/stl_relops.h \
+ /usr/include/c++/11/array /usr/include/c++/11/bits/uses_allocator.h \
+ /usr/include/c++/11/bits/invoke.h \
+ /usr/include/c++/11/bits/stl_multimap.h \
+ /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/optional \
+ /usr/include/c++/11/bits/enable_special_members.h

@@ -9,10 +9,17 @@ class Weapon {
     public:
         Weapon(string name, int damage, int strengthModifier, int durability);
         int getDamage(int strength);
+        string getStats();
         bool isBroken();
         void use();
         string getName();
+        int getWeaponDamage();
+        int getDurability();
+        int getStrengthModifier();
         ~Weapon();
+
+       
+
 
     private:
         string name;

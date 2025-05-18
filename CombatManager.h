@@ -2,6 +2,7 @@
 #define COMBATMANAGER_H
 #include "Enemy.h"
 #include "Hero.h"
+#include "DatabaseManager.h"
 #include <iostream>
 
 class CombatManager {
@@ -16,6 +17,7 @@ class CombatManager {
         void attack(Character& attacker, Character& defender);
         bool isFightOver();
         void endCombat();
+        DatabaseManager db;
         
 
 

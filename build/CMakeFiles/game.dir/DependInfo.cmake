@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/sammy/workspace/softwareudvikling/Cave.cpp" "CMakeFiles/game.dir/Cave.cpp.o" "gcc" "CMakeFiles/game.dir/Cave.cpp.o.d"
   "/home/sammy/workspace/softwareudvikling/Character.cpp" "CMakeFiles/game.dir/Character.cpp.o" "gcc" "CMakeFiles/game.dir/Character.cpp.o.d"
   "/home/sammy/workspace/softwareudvikling/CombatManager.cpp" "CMakeFiles/game.dir/CombatManager.cpp.o" "gcc" "CMakeFiles/game.dir/CombatManager.cpp.o.d"
+  "/home/sammy/workspace/softwareudvikling/DatabaseManager.cpp" "CMakeFiles/game.dir/DatabaseManager.cpp.o" "gcc" "CMakeFiles/game.dir/DatabaseManager.cpp.o.d"
   "/home/sammy/workspace/softwareudvikling/Enemy.cpp" "CMakeFiles/game.dir/Enemy.cpp.o" "gcc" "CMakeFiles/game.dir/Enemy.cpp.o.d"
   "/home/sammy/workspace/softwareudvikling/Hero.cpp" "CMakeFiles/game.dir/Hero.cpp.o" "gcc" "CMakeFiles/game.dir/Hero.cpp.o.d"
   "/home/sammy/workspace/softwareudvikling/Weapon.cpp" "CMakeFiles/game.dir/Weapon.cpp.o" "gcc" "CMakeFiles/game.dir/Weapon.cpp.o.d"

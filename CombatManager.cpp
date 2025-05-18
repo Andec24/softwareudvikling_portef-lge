@@ -13,7 +13,7 @@ void CombatManager::attack(Character& attacker, Character& defender) {
     cout << attacker.getName() << " attacks " << defender.getName() << "!" << endl;
     attacker.attack(defender);
     cout << defender.getName() << " has " << defender.getHp() << " HP left." << endl;
-
+    
 }
 
 
@@ -28,11 +28,12 @@ void CombatManager::startCombat(){
 
 while (true)
 {
-    sleep(1);
+    sleep(2);
     attack(hero, enemy);
     if (enemy.getHp() == 0)
     {break;}
-    sleep(1);
+    sleep(2);
+    cout << endl;
     attack(enemy, hero);
     if (hero.getHp() == 0)
     {break;}
@@ -55,9 +56,16 @@ void CombatManager::endCombat(){
         hero.gainXp(xpAmount);
         hero.resetHp(); 
         enemy.resetHp();
+        DatabaseManager db;
+        Weapon* weapon = hero.getWeapon();
+        string weaponName = (weapon != nullptr) ? weapon->getName() : "Bare Hands";
+        db.logKill(hero.getName(), weaponName, enemy.getName());
 
     }
 }
+
+
+
 CombatManager::~CombatManager(){
     cout << "combat ended" << endl;
     cout << endl;

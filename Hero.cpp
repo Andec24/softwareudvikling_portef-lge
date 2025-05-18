@@ -1,7 +1,10 @@
 #include "Hero.h"
 
-Hero::Hero(const string& name)
-    : Character(name, 10, 2), xp(0), level(1) {}
+Hero::Hero(const string& name, int level, int xp, int gold)
+    : Character(name, 10 + (level - 1)*2, 2 + (level - 1)), xp(0), level(level), gold(gold) {
+        weapon = nullptr; 
+    }
+
 
 void Hero::gainXp(int amount) {
     xp += amount;
@@ -39,6 +42,14 @@ int Hero::getLevel() {
     return level;
 }
 
+int Hero::getGold() const {
+    return gold;
+}
+
+int Hero::getXp() const {
+    return xp;
+}
+
 
 void Hero::equipWeapon(Weapon* weapon) {
     this -> weapon = weapon;
@@ -47,5 +58,5 @@ void Hero::equipWeapon(Weapon* weapon) {
 }
 
 Weapon* Hero::getWeapon() const {
-    return weapon;
+    return weapon ? weapon : nullptr;
 }
